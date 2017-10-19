@@ -11,7 +11,10 @@ buildscript {
         "MAINTAINER RadiantBlue Technologies radiantblue.com",
         "USER root",
         "RUN yum -y install ossim-jpip-server && yum clean all",
-        "USER 1001"
+        "USER 1001",
+        "COPY ./run.sh $HOME",
+        "RUN chmod og+rx $HOME/*.sh",
+        "CMD ./run.sh"
        ]
      }
     if(System.env.OMAR_COMMON_PROPERTIES)
