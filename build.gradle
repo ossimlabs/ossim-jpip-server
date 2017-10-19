@@ -11,7 +11,7 @@ buildscript {
         "MAINTAINER RadiantBlue Technologies radiantblue.com",
         "USER root",
         "COPY ./run.sh \$HOME",
-        "RUN yum -y install ossim-jpip-server && yum clean all&&chown 1001:0 \$HOME/*;chmod ugo+x \$HOME/*.sh",
+        "RUN yum --disablerepo=* --enablerepo=ossim -y install ossim-jpip-server && yum clean all&&chown 1001:0 \$HOME/*;chmod ugo+x \$HOME/*.sh",
         "USER 1001",
         "EXPOSE 8080",
         "WORKDIR \$HOME",
