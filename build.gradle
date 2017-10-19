@@ -14,6 +14,7 @@ buildscript {
         "USER 1001",
         "COPY ./run.sh \$HOME",
         "EXPOSE 8080",
+        "WORKDIR \$HOME",
         "CMD ./run.sh"
        ]
      }
