@@ -10,9 +10,9 @@ buildscript {
         "FROM ${project.dockerNamespaceUrl}${project.ext.baseImage}:${project.dockerAppTag}",
         "MAINTAINER RadiantBlue Technologies radiantblue.com",
         "USER root",
-        "RUN yum -y install ossim-jpip-server && yum clean all",
-        "USER 1001",
         "COPY ./run.sh \$HOME",
+        "RUN yum -y install ossim-jpip-server && yum clean all&&chown 1001:0 \$HOME/*;chmod ogw+x \$HOME/*.sh",
+        "USER 1001",
         "EXPOSE 8080",
         "WORKDIR \$HOME",
         "CMD ./run.sh"
