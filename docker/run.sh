@@ -30,9 +30,9 @@ if [ -z ${ADDRESS} ] ; then
 fi
 
 if [ -z ${CONNECTION_THREADS} ] ; then
-   export CONNECTIONS_THREADS=100
+   export CONNECTION_THREADS=100
 fi
 
 pushd ${JPIP_DATA_DIR} >/dev/null
-ossim-jpip-server -sources ${SOURCES} -clients ${CLIENTS} -port ${PORT} -max_rate ${MAX_RATE} -address ${ADDRESS} -connection_threads ${CONNECTIONS_THREADS}
+ossim-jpip-server -sources ${SOURCES} -clients ${CLIENTS} -port ${PORT} -max_rate ${MAX_RATE} -address ${ADDRESS} -connection_threads ${CONNECTION_THREADS}
 popd > /dev/null
