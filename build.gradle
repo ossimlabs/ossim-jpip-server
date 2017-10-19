@@ -13,6 +13,7 @@ buildscript {
         "RUN yum -y install ossim-jpip-server && yum clean all",
         "USER 1001",
         "COPY ./run.sh \$HOME",
+        "EXPOSE 8080",
         "CMD ./run.sh"
        ]
      }
