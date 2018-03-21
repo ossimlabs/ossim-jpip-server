@@ -30,7 +30,7 @@ if [ -z ${MAX_RATE} ] ; then
 fi
 
 if [ -z ${ADDRESS} ] ; then
-  export ADDRESS=localhost
+  export ADDRESS=0.0.0.0
 fi
 
 if [ -z ${CONNECTION_THREADS} ] ; then
