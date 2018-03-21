@@ -18,7 +18,11 @@ if [ -z ${CLIENTS} ] ; then
 fi
 
 if [ -z ${PORT} ] ; then
-   export PORT=8080
+   if [ -z {OSSIM_JPIP_SERVER_SERVICE_PORT} ] ; then
+     export PORT=8080
+   else
+     export PORT=${OSSIM_JPIP_SERVER_SERVICE_PORT}
+   fi
 fi
 
 if [ -z ${MAX_RATE} ] ; then
@@ -26,7 +30,11 @@ if [ -z ${MAX_RATE} ] ; then
 fi
 
 if [ -z ${ADDRESS} ] ; then
-   export ADDRESS=localhost
+  if [ -z ${OSSIM_JPIP_SERVER_SERVICE_HOST} ] ; then
+     export ADDRESS=localhost
+  else
+     export ADDRESS=${OSSIM_JPIP_SERVER_SERVICE_HOST}
+  fi
 fi
 
 if [ -z ${CONNECTION_THREADS} ] ; then
