@@ -30,11 +30,7 @@ if [ -z ${MAX_RATE} ] ; then
 fi
 
 if [ -z ${ADDRESS} ] ; then
-  if [ -z ${OSSIM_JPIP_SERVER_SERVICE_HOST} ] ; then
-     export ADDRESS=localhost
-  else
-     export ADDRESS=${OSSIM_JPIP_SERVER_SERVICE_HOST}
-  fi
+  export ADDRESS=localhost
 fi
 
 if [ -z ${CONNECTION_THREADS} ] ; then
