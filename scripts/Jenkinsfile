@@ -12,7 +12,7 @@
 
 // TODO: get to run on any node
 def notifyObj
-node(""){
+node("ossim-build"){
     def workspaceDir = pwd()
     def appName = "ossim-jpip-server"
     def omarCommonProjName = "omar-common"
