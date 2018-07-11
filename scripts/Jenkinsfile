@@ -11,7 +11,6 @@
 //==================================================================================================
 
 // TODO: get to run on any node
-def notifyObj
 node("ossim-build"){
     def workspaceDir = pwd()
     def appName = "ossim-jpip-server"
@@ -29,14 +28,6 @@ node("ossim-build"){
 
         // Set the environment variable for the gradle build
         // env.OMAR_COMMON_PROPERTIES="${workspaceDir}/${omarCommonProjName}/omar-common-properties.gradle"
-    }
-    stage("Download Artifacts"){
-       step ([$class: "CopyArtifact",
-             projectName: "ossim-ci-${OSSIM_GIT_BRANCH}",
-             filter: "ossim-ci-${OSSIM_GIT_BRANCH}.tgz",
-             flatten: true])
-       sh "tar xvfz ossim-ci-${OSSIM_GIT_BRANCH}.tgz"
-       notifyObj = load "${env.WORKSPACE}/ossim-ci/jenkins/pipeline/notify.groovy"
     }
 
     try {
@@ -59,7 +50,6 @@ node("ossim-build"){
     catch(e){
         echo e.toString()
         currentBuild.result = "FAILED"
-        notifyObj?.notifyFailed()
     }
   stage("Clean Workspace"){
      step([$class: 'WsCleanup'])
